@@ -28,6 +28,10 @@
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.banner-text p
+{
+    font-size: 14px;
+}
 
 @media screen and (max-width:576px) {
     .slide img
@@ -43,11 +47,15 @@
     }
 
     .banner-text h2
-{
-    font-size: 20px;
-    font-weight: 700;
-    color: #202C45;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        {
+            font-size: 20px;
+            font-weight: 700;
+            color: #202C45;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .banner-text p
+        {
+            font-size: 12px;
+        }   
 }
