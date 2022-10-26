@@ -27,3 +27,9 @@
 {
     margin-left: 10px;
 }
+
+.card-img {
+    height: 120px;
+    width: 100%;
+    object-fit: cover;
+}

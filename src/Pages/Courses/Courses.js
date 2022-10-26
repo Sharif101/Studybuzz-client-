@@ -13,18 +13,17 @@ const Courses = () => {
   return (
     <div>
       <Container>
-        <Row>
-          <Col lg="4">
+        {/* <Col lg="4">
             {courses.map((course) => (
               <Sidenav key={courses.id} course={course}></Sidenav>
             ))}
-          </Col>
-          <Col lg="8" className="course-card mt-3">
-            {courses.map((course) => (
-              <Course course={course} key={course.id}></Course>
-            ))}
-          </Col>
-        </Row>
+          </Col> */}
+        <div className="course-card mt-3">
+          {" "}
+          {courses.map((course) => (
+            <Course course={course} key={course.id}></Course>
+          ))}
+        </div>
       </Container>
     </div>
   );
