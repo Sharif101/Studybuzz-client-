@@ -1,0 +1,10 @@
+.course-name  p
+{
+    margin-top: 10px;
+}
+.course-name a
+{
+    text-decoration: none;
+    color: #202C45;
+    font-size: 20px;
+}
