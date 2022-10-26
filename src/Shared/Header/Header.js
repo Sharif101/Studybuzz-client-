@@ -26,9 +26,11 @@ const Header = () => {
               <Link to="/courses">Courses</Link>
               <Link to="/faq">FAQ</Link>
               <Link to="/blog">Blog</Link>
-              <Button className="log-btn" variant="info">
-                Log in
-              </Button>
+              <Link to="/login">
+                <Button className="log-btn" variant="info">
+                  Log in
+                </Button>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
