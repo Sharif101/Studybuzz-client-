@@ -1,17 +1,17 @@
 import React from "react";
-import { Col, Row } from "react-bootstrap";
+// import { Col, Row } from "react-bootstrap";
+import { useLoaderData } from "react-router-dom";
+import Course from "../Course/Course";
 
 const Courses = () => {
+  let courses = useLoaderData();
+  // let { name } = courses;
+  // console.log(courses);
   return (
     <div>
-      <Row>
-        <Col lg="4">
-          <h3>left side</h3>
-        </Col>
-        <Col lg="8">
-          <h4>right siide</h4>
-        </Col>
-      </Row>
+      {courses.map((course) => (
+        <Course course={course} key={course.id}></Course>
+      ))}
     </div>
   );
 };
