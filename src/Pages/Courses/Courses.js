@@ -1,9 +1,9 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 // import { Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
 import Course from "../Course/Course";
-import Sidenav from "../Sidenav/Sidenav";
+// import Sidenav from "../Sidenav/Sidenav";
 import "./Courses.css";
 
 const Courses = () => {
