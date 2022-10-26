@@ -1,10 +1,20 @@
 .course-name  p
 {
     margin-top: 10px;
+    background-color: #7886dfa6;
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
 }
 .course-name a
 {
     text-decoration: none;
     color: #202C45;
     font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+
+.course-name a:hover{
+    color: white;
 }

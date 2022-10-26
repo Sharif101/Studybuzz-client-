@@ -14,7 +14,7 @@ const Course = ({ course }) => {
     <div>
       <Card>
         <Card.Img className="card-img" variant="top" src={image_url} />
-        <Card.Body>
+        <Card.Body className="card-cour">
           <Card.Title>{name}</Card.Title>
           <Card.Text>{title}</Card.Text>
           <Link to={`/courses/${id}`}>
