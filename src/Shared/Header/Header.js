@@ -8,6 +8,9 @@ import logo from "../../assest/logo/logo.png";
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
@@ -15,6 +18,8 @@ const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   let [username, setUsername] = useState(false);
+
+  let [toggle, setToggle] = useState(false);
 
   let handleSingout = () => {
     logOut()
@@ -45,6 +50,20 @@ const Header = () => {
                   Register
                 </Button>
               </Link> */}
+
+              {toggle ? (
+                <FontAwesomeIcon
+                  className="sun"
+                  icon={faSun}
+                  onClick={() => setToggle(!toggle)}
+                ></FontAwesomeIcon>
+              ) : (
+                <FontAwesomeIcon
+                  className="moon"
+                  icon={faMoon}
+                  onClick={() => setToggle(!toggle)}
+                ></FontAwesomeIcon>
+              )}
 
               {user?.photoURL && (
                 <div className="nav-image">

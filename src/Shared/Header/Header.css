@@ -61,6 +61,20 @@
     font-weight: 600;
 }
 
+.sun{
+    color: rgb(245, 241, 31);
+    font-size: 20px;
+    margin: 0 20px;
+    margin-top: 5px;
+}
+
+.moon{
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin: 0 20px;
+    margin-top: 5px;
+}
+
 @media screen and (max-width:576px) {
     /* .navbar {
         flex-wrap: nowrap !important;
@@ -85,6 +99,16 @@
     }
 
     .nav-image img {
+        margin-bottom: 20px;
+    }
+
+    .sun{
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .moon{
+        margin-top: 10px;
         margin-bottom: 20px;
     }
 }
