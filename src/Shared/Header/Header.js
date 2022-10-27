@@ -6,9 +6,19 @@ import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import logo from "../../assest/logo/logo.png";
 import "./Header.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  let handleSingout = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.error(error));
+  };
+
   return (
     <div>
       <Navbar expand="lg" className="nav">
@@ -26,17 +36,30 @@ const Header = () => {
               <Link to="/courses">Courses</Link>
               <Link to="/faq">FAQ</Link>
               <Link to="/blog">Blog</Link>
-              <Link to="/login">
-                <Button className="log-btn" variant="info">
-                  Log in
-                </Button>
-              </Link>
 
-              <Link to="/register">
+              {/* <Link to="/register">
                 <Button className="log-btn" variant="info">
                   Register
                 </Button>
-              </Link>
+              </Link> */}
+
+              {user?.email && <p>{user.email}</p>}
+
+              {user?.email ? (
+                <Button
+                  className="log-btn"
+                  variant="info"
+                  onClick={handleSingout}
+                >
+                  Log Out
+                </Button>
+              ) : (
+                <Link to="/login">
+                  <Button className="log-btn" variant="info">
+                    Log in
+                  </Button>
+                </Link>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
