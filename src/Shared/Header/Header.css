@@ -41,3 +41,50 @@
     border-radius: 50%;
     margin: 0  5px;
 }
+
+.showName{
+    display: block;
+}
+.hideName{
+    display:none;
+}
+.visible{
+    position: absolute;
+    background: #ecf0f3;
+    box-shadow: 2px 2px 8px #cbced1,
+                0px 0px 8px #ffffff;
+    padding:5px 20px;
+    margin-top:10px;
+    border-radius: 10px;
+    z-index:1;
+    color: #FE589A;
+    font-weight: 600;
+}
+
+@media screen and (max-width:576px) {
+    /* .navbar {
+        flex-wrap: nowrap !important;
+    } */
+
+    .nav-title {
+        font-size: 15px;
+    }
+
+    .nav-logo {
+        width: 10%;
+        margin-right: 13px;
+    }
+    .navbar-nav a {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nav-image
+    {
+        margin: 0 auto;
+    }
+
+    .nav-image img {
+        margin-bottom: 20px;
+    }
+}

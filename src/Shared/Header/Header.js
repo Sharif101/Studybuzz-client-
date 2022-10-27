@@ -8,10 +8,13 @@ import logo from "../../assest/logo/logo.png";
 import "./Header.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { useState } from "react";
 // import NavDropdown from "react-bootstrap/NavDropdown";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
+
+  let [username, setUsername] = useState(false);
 
   let handleSingout = () => {
     logOut()
@@ -44,7 +47,22 @@ const Header = () => {
               </Link> */}
 
               {user?.photoURL && (
-                <img src={user.photoURL} alt="" className="acc-img" />
+                <div className="nav-image">
+                  <img
+                    onMouseEnter={() => setUsername(true)}
+                    onMouseLeave={() => setUsername(false)}
+                    src={user.photoURL}
+                    alt=""
+                    className="acc-img"
+                  />
+                  <p
+                    className={
+                      username ? "visible showName" : "visible hideName"
+                    }
+                  >
+                    {user?.displayName}
+                  </p>
+                </div>
               )}
 
               {user?.uid ? (
