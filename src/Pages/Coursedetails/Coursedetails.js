@@ -1,20 +1,30 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 
+import Pdf from "react-to-pdf";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faCrown } from "@fortawesome/free-solid-svg-icons";
 import "./Coursedetails.css";
 
+const ref = React.createRef();
 const Coursedetails = () => {
   let details = useLoaderData();
   console.log(details);
   return (
-    <div>
+    <div ref={ref}>
       {/* <h1>{details.name}</h1> */}
 
       <Card className="card-bd">
         <Card.Img variant="top" src={details.image_url} />
+
+        <Pdf targetRef={ref} filename={`${details.name}.pdf`}>
+          {({ toPdf }) => (
+            <button className="pdf-btn" onClick={toPdf}>
+              Download pdf
+            </button>
+          )}
+        </Pdf>
         <Card.Body className="text">
           <div>
             <Card.Title>
@@ -36,7 +46,7 @@ const Coursedetails = () => {
             <p>Total Fee: {details.total_fee}</p>
           </div>
           <Link to={`/courses/${details.id}/premium`}>
-            <button>
+            <button className="premium-btn">
               Get Prenium <FontAwesomeIcon icon={faCrown}></FontAwesomeIcon>
             </button>
           </Link>

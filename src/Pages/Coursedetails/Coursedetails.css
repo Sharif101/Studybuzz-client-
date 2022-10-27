@@ -40,7 +40,7 @@
     font-weight: 700;
     color: #202C45;
 }
-.card-bd button
+.card-bd .premium-btn
 {
     outline: none;
     border:none;
@@ -57,7 +57,26 @@
                 -3px -3px 8px #ffffff;
     transition: 0.5s;
 }
-
+.pdf-btn
+{
+    width: fit-content;
+    margin-top: 15px;
+    outline: none;
+    border:none;
+    cursor: pointer;
+    /* height: 60px; */
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color:#fff;
+    text-align: center;
+    background: #31D2F2;
+    box-shadow: 3px 3px 8px #b1b1b1,
+                -3px -3px 8px #ffffff;
+    transition: 0.5s;
+    margin-left: 10px;
+}
 
 @media screen and (max-width:576px) {
     .card-bd p
