@@ -10,12 +10,12 @@
 
 ---
 
-.*Login Apply <br></br>
-.*Sign Up Apply <br></br>
+._ Login Apply <br></br>
+._ Sign Up Apply <br></br>
 ._Added a enroll system <br></br>
 ._ There are you can get premium access<br></br>
-.* Get premium Method <br></br>
-.*here you get lot of course <br></br>
+._ Get premium Method <br></br>
+._ here you get lot of course <br></br>
 
 #### Technologies that used
 
