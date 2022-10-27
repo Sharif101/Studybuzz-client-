@@ -43,9 +43,11 @@ const Header = () => {
                 </Button>
               </Link> */}
 
-              {user?.email && <p>{user.email}</p>}
+              {user?.photoURL && (
+                <img src={user.photoURL} alt="" className="acc-img" />
+              )}
 
-              {user?.email ? (
+              {user?.uid ? (
                 <Button
                   className="log-btn"
                   variant="info"

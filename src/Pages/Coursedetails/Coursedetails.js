@@ -35,11 +35,11 @@ const Coursedetails = () => {
             <p>Total Project: {details.total_project}</p>
             <p>Total Fee: {details.total_fee}</p>
           </div>
-          <button>
-            <Link to={`/courses/${details.id}/premium`}>
+          <Link to={`/courses/${details.id}/premium`}>
+            <button>
               Get Prenium <FontAwesomeIcon icon={faCrown}></FontAwesomeIcon>
-            </Link>
-          </button>
+            </button>
+          </Link>
         </Card.Body>
       </Card>
     </div>

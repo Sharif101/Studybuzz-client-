@@ -9,6 +9,7 @@ import Getpremium from "../../Pages/Getpremium/Getpremium";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import Privateroute from "./Privateroute";
 
 export const routes = createBrowserRouter([
   {
@@ -46,7 +47,11 @@ export const routes = createBrowserRouter([
                 `https://courses-server-beta.vercel.app/courses/${params.id}`
               );
             },
-            element: <Getpremium></Getpremium>,
+            element: (
+              <Privateroute>
+                <Getpremium></Getpremium>
+              </Privateroute>
+            ),
           },
         ],
       },

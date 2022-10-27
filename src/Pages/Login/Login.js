@@ -1,26 +1,35 @@
 import React from "react";
 // import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFaceSmileBeam } from "@fortawesome/free-solid-svg-icons";
 import "./Login.css";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { useState } from "react";
 
 const Login = () => {
-  let { providerlogin } = useContext(AuthContext);
+  let [error, setError] = useState("");
+
+  let { providerlogin, githubLogin } = useContext(AuthContext);
+  let navigate = useNavigate();
+  let location = useLocation();
+
+  let from = location.state?.from?.pathname || "/";
 
   const googleProvider = new GoogleAuthProvider();
+  const githubprovider = new GithubAuthProvider();
 
   let handlegooglesingin = () => {
     providerlogin(googleProvider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         console.log(user);
       })
-      .catch((error) => console.error());
+      .catch((error) => console.error(error));
   };
 
   let { signIn } = useContext(AuthContext);
@@ -37,10 +46,31 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        if (error.message === "Firebase: Error (auth/user-not-found).") {
+          setError("User Not found. Please Create your account.");
+        }
+
+        if (error.message === "Firebase: Error (auth/wrong-password).") {
+          setError("Wrong Password. Please Try Again.");
+        }
+      });
   };
 
+  let handlegithub = () => {
+    githubLogin(githubprovider)
+      .then((result) => {
+        let user = result.user;
+        navigate(from, { replace: true });
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <Form className="form" onSubmit={handleSubmit}>
@@ -61,7 +91,8 @@ const Login = () => {
             placeholder="Password"
           />
         </Form.Group>
-        <p>
+        <small className="err">{error}</small>
+        <p className="mt-4">
           You haven't any account
           <Link to="/register">register here</Link>
         </p>
@@ -70,7 +101,7 @@ const Login = () => {
           <p className="text-center">Or sing up using</p>
           <div className="d-flex flex-column social-singup">
             <button onClick={handlegooglesingin}>Google</button>
-            <button>Github</button>
+            <button onClick={handlegithub}>Github</button>
           </div>
         </div>
       </Form>
