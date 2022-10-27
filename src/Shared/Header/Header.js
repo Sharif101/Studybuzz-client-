@@ -31,6 +31,12 @@ const Header = () => {
                   Log in
                 </Button>
               </Link>
+
+              <Link to="/register">
+                <Button className="log-btn" variant="info">
+                  Register
+                </Button>
+              </Link>
             </Nav>
           </Navbar.Collapse>
         </Container>

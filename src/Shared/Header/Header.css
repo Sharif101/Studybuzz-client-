@@ -21,13 +21,13 @@
 
 .log-btn
 {
-    margin: 0 15px;
+    margin: 0 5px;
 }
 .navbar-nav a
 {
     color: white;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 8px;
     font-size: 16px;
 }
 .navbar-nav a:hover
