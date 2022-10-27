@@ -5,6 +5,7 @@ import Blog from "../../Pages/Blog/Blog";
 import Coursedetails from "../../Pages/Coursedetails/Coursedetails";
 import Courses from "../../Pages/Courses/Courses";
 import Faq from "../../Pages/Faq/Faq";
+import Getpremium from "../../Pages/Getpremium/Getpremium";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
@@ -37,6 +38,15 @@ export const routes = createBrowserRouter([
               );
             },
             element: <Coursedetails></Coursedetails>,
+          },
+          {
+            path: "/courses/:id/premium",
+            loader: async ({ params }) => {
+              return fetch(
+                `https://courses-server-beta.vercel.app/courses/${params.id}`
+              );
+            },
+            element: <Getpremium></Getpremium>,
           },
         ],
       },

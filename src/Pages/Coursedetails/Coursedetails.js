@@ -1,5 +1,5 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,7 +36,9 @@ const Coursedetails = () => {
             <p>Total Fee: {details.total_fee}</p>
           </div>
           <button>
-            Get Prenium <FontAwesomeIcon icon={faCrown}></FontAwesomeIcon>
+            <Link to={`/courses/${details.id}/premium`}>
+              Get Prenium <FontAwesomeIcon icon={faCrown}></FontAwesomeIcon>
+            </Link>
           </button>
         </Card.Body>
       </Card>
