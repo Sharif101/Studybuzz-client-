@@ -25,13 +25,15 @@ export const routes = createBrowserRouter([
             path: "/courses",
             element: <Courses></Courses>,
             loader: async () => {
-              return fetch("http://localhost:5000/courses");
+              return fetch("https://courses-server-beta.vercel.app/courses");
             },
           },
           {
             path: "/courses/:id",
             loader: async ({ params }) => {
-              return fetch(`http://localhost:5000/courses/${params.id}`);
+              return fetch(
+                `https://courses-server-beta.vercel.app/courses/${params.id}`
+              );
             },
             element: <Coursedetails></Coursedetails>,
           },

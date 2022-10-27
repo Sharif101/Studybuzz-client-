@@ -7,7 +7,7 @@ const Sidenav = ({ course }) => {
   let [coursedata, setCoursedata] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/courses")
+    fetch("https://courses-server-beta.vercel.app/courses")
       .then((res) => res.json())
       .then((res) => setCoursedata(res));
   }, []);
